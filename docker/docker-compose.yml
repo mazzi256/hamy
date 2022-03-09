@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  backend:
+    container_name: hamy
+    image: hamy
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    env_file: docker/.env
+    ports:
+      - 8000:8000
+    volumes:
+      - hamy/temp
+    depends_on: [postgres]
+
+  postgres:
+    container_name: hamy-postgres
+    image: postgres:9.6-alpine
+    env_file: docker/.env
+    ports:
+      - 5435:5435
+    environment:
+      POSTGRES_USER: hamy_user
+      POSTGRES_PASSWORD: hamy_pass
+    volumes:
+      - hamy-postgres-pgdata:/var/lib/postgresql/data
+
+volumes:
+  hamy-pgdata: null
+  hamy: null
+  hamy-postgres-pgdata:
