@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    #custom
+    "api",
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -80,7 +84,7 @@ WSGI_APPLICATION = "hamy.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.postgresql_psycopg2",
+        "ENGINE": "django.db.backends.postgresql",
         "NAME": env("NAME"),
         "USER": env("USER"),
         "PASSWORD": env("PASSWORD"),
