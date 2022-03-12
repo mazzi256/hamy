@@ -9,7 +9,7 @@ class BaseModel(models.Model):
 class Todo(BaseModel):
     title = models.CharField(max_length=200,default=None, help_text="Title")
     description = models.TextField(max_length=200)
-    database = models.DateField(auto_now_add=False)
+    to_be_done = models.DateField(auto_now_add=False)
     
     def __str__(self):
         return self.title

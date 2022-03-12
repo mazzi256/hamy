@@ -2,4 +2,5 @@ django==3.2
 djangorestframework
 django-environ
 psycopg2-binary
+django-stubs
 
